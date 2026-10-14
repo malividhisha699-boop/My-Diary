@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyDay - Digital Diary</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2 class="logo">🌷 MyDay</h2>
+      <p class="side-label">YOUR PERSONAL SPACE</p>
+      <button class="nav active" data-view="home">🏠 My Journal</button>
+      <button class="nav" data-view="write">✍️ Write an Entry</button>
+      <button class="nav" data-view="memories">💌 My Memories</button>
+
+      <div class="sidebar-bottom">
+        <p>“Make today a memory worth keeping.”</p>
+        <button id="themeButton" class="theme-button">🌙 Dark Mode</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="header">
+        <div>
+          <p class="eyebrow" id="dateLabel"></p>
+          <h1 id="greeting">Your little corner of the world ✨</h1>
+          <p class="subtitle">A safe space for your thoughts, feelings and memories.</p>
+        </div>
+        <div class="flower">🌸</div>
+      </header>
+
+      <section class="welcome-card">
+        <div>
+          <p class="eyebrow">A LITTLE REMINDER</p>
+          <h2>Your story matters.</h2>
+          <p>Take a breath. Write a little. Let your thoughts find a home.</p>
+          <button id="startWriting" class="primary">＋ Write Today's Entry</button>
+        </div>
+        <div class="welcome-flower">🌷</div>
+      </section>
+
+      <section class="stats">
+        <article class="stat">
+          <span>📖</span>
+          <div><p>Total entries</p><h2 id="entryCount">0</h2></div>
+        </article>
+        <article class="stat">
+          <span>💗</span>
+          <div><p>Today's entries</p><h2 id="todayCount">0</h2></div>
+        </article>
+      </section>
+
+      <section id="editor" class="panel">
+        <div class="section-heading">
+          <div>
+            <h2 id="editorHeading">Dear Diary... 💌</h2>
+            <p>There are no rules here. Just be yourself.</p>
+          </div>
+        </div>
+
+        <form id="entryForm">
+          <label for="entryTitle">Give your day a title</label>
+          <input id="entryTitle" type="text" maxlength="100"
+            placeholder="e.g. A day full of little joys" required>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="entryDate">Date</label>
+              <input id="entryDate" type="date" required>
+            </div>
+            <div class="field">
+              <label for="entryMood">How are you feeling?</label>
+              <select id="entryMood">
+                <option value="😊 Happy">😊 Happy</option>
+                <option value="😌 Calm">😌 Calm</option>
+                <option value="🥰 Loved">🥰 Loved</option>
+                <option value="🤩 Excited">🤩 Excited</option>
+                <option value="😔 Sad">😔 Sad</option>
+                <option value="😴 Tired">😴 Tired</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="entryContent">Your thoughts</label>
+          <textarea id="entryContent" rows="6" maxlength="10000"
+            placeholder="Dear Diary, today I..." required></textarea>
+
+          <div class="editor-actions">
+            <button type="button" id="cancelEdit" class="secondary hidden">Cancel edit</button>
+            <button type="submit" id="saveButton" class="primary">💌 Save Entry</button>
+          </div>
+          <p id="formMessage" role="status"></p>
+        </form>
+      </section>
+
+      <section id="entriesSection" class="entries-section">
+        <div class="section-heading">
+          <div>
+            <h2 id="entriesHeading">Your Recent Memories 🌼</h2>
+            <p>Little moments, kept forever.</p>
+          </div>
+        </div>
+
+        <input id="searchInput" class="search" type="search"
+          placeholder="🔍 Search your memories..." aria-label="Search diary entries">
+
+        <div id="entriesList" class="entries-grid"></div>
+        <p id="emptyMessage" class="empty">
+          Your journal is waiting for its first story. 🌷
+        </p>
+      </section>
+
+      <footer>Made with 💗 · MyDay Digital Diary</footer>
+    </main>
+  </div>
+</body>
+</html>
